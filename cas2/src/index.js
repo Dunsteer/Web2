@@ -1,7 +1,18 @@
 import { Movie } from "./movie";
-import { compareMovies as copm } from "./functions";
+import { MovieService } from "./moviceService";
 
-const m1 = new Movie("Avengers", 2015, 5);
-const m2 = new Movie("Die Hard 2", 1990, 8);
+async function start() {
+  let ms = new MovieService();
+  let m = await ms.getRandom().catch(err=>console.error(`ERROR: ${err}`));
+  if (m) {
+    m.print();
+  }
+  else {
+    console.error("movie is", m);
+  }
 
-console.log(copm(m1, m2));
+  //console.log(await ms.get());
+  //console.log(await ms.getByIndex(2));
+}
+
+start();

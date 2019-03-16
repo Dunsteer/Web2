@@ -1,0 +1,4 @@
+napraviti klasu MovieService koja ima metode:
+async get() vraca niz filmova (class Movie)
+async getByIndex(index)
+async getRandomMovie() vratiti film po slucajnom indeksu (sa getRandomNumber)
