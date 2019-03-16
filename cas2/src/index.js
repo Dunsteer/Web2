@@ -7,12 +7,9 @@ async function start() {
   if (m) {
     m.print();
   }
-  else {
-    console.error("movie is", m);
-  }
 
-  //console.log(await ms.get());
-  //console.log(await ms.getByIndex(2));
+  console.log(await ms.get());
+  console.log(await ms.getByIndex(2));
 }
 
 start();
