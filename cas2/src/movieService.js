@@ -20,7 +20,7 @@ export class MovieService {
   });
  }
 
- async getRandom() {
+ getRandom() {
 
   return new Promise(async (res, rej) => {
    let index = await getRandomNumberAsync().catch(err => {
