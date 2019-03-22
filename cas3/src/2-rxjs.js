@@ -1,15 +1,22 @@
-import { interval, range, Observable } from "rxjs";
-import { take, filter, map } from "rxjs/operators";
+import { interval, range, Subject, Observable } from "rxjs";
+import { take, filter, map, takeUntil } from "rxjs/operators";
 
-function executeInterval() {
+function executeInterval(stop$) {
     return interval(500).pipe(
         filter(x => x % 2 === 1),
         map(x => x + 2),
-        take(10)
+        take(10),
+        takeUntil(stop$)
     ).subscribe(x => console.log(x));
 }
-const sub = executeInterval();
-createUnsubscribeButton(sub);
+
+function getRandomNumbers(stop$) {
+    return Observable.create((generator) => {
+        setInterval(() => {
+            generator.next(parseInt(Math.random() * 10))
+        }, 300);
+    }).pipe(takeUntil(stop$));
+}
 
 function createUnsubscribeButton(subscription) {
     const button = document.createElement('button');
@@ -21,3 +28,22 @@ function createUnsubscribeButton(subscription) {
     };
 }
 
+function createStopButton(stop$) {
+    const button = document.createElement('button');
+    button.innerHTML = "Stop";
+    document.body.appendChild(button);
+    button.onclick = () => {
+        stop$.next("STOP");
+        stop$.complete();
+    };
+}
+
+const subject$ = new Subject();
+subject$.subscribe(x => console.log(`sub ${x}`));
+subject$.next(4);
+subject$.next(6);
+
+createStopButton(subject$);
+
+getRandomNumbers(subject$).subscribe(x=>console.log(`rand ${x}`));
+const sub = executeInterval(subject$);
