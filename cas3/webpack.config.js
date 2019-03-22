@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/rxjs.js',
+  entry: './src/2-rxjs.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
