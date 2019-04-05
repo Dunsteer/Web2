@@ -1,0 +1,34 @@
+{
+  "movies": [
+    {
+      "id": "1",
+      "title": "Rambo",
+      "year": 1985,
+      "score": 9
+    },
+    {
+      "id": "2",
+      "title": "Rocky",
+      "year": 1985,
+      "score": 9
+    },
+    {
+      "id": "3",
+      "title": "Fight Club",
+      "year": 1234,
+      "score": 5
+    },
+    {
+      "id": "4",
+      "title": "ASD",
+      "year": 2020,
+      "score": 11
+    },
+    {
+      "id": "5",
+      "title": "HAH",
+      "year": 2020,
+      "score": 11
+    }
+  ]
+}
