@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import MyButton from './components/Button';
+import ButtonStrip from './components/ButtonStrip';
+
 
 class App extends Component {
   render() {
@@ -19,6 +22,8 @@ class App extends Component {
           >
             Learn React
           </a>
+          {/* <MyButton naslov='test'></MyButton> */}
+          <ButtonStrip titles={['test1', 'test2', 'test3']}></ButtonStrip>
         </header>
       </div>
     );
